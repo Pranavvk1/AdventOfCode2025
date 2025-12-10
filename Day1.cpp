@@ -12,21 +12,21 @@ int main() {
         
         char dir = rotation.at(0);
         int offset = std::stoi(rotation.substr(1, std::string::npos));
-        std::cout << dir << offset << '\n';
-        std::cout << "Before rotation " << pos << '\n';
+        // std::cout << dir << offset << '\n';
+        // std::cout << "Before rotation " << pos << '\n';
 
-        offset = offset % 100;
-        if(dir == 'R') {
-            pos += offset;
-        } else {
-            pos -= offset;
-        }
-        pos = (pos % 100 + 100) % 100;
+        for(int i = 0; i < offset; i++) {
+            if(dir == 'R') {
+                pos++;
+            } else {
+                pos--;
+            }
 
-        if(pos == 0) {
-            count++;
+            if(pos % 100 == 0) {
+                count++;
+            }
         }
-        std::cout << "After rotation " << pos << '\n';
+        // std::cout << "After rotation " << pos << '\n';
 
     }
     std::cout << count;
